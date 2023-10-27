@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9461a79bbd4945a0a40bb1567f00e905, type: 3}
+  m_Name: AuxiliaryNodePositionData
+  m_EditorClassIdentifier: 
+  NodePositionsData:
+  - MissionId: 3.OwlsVsRavens.owls
+    Position:
+      serializedVersion: 2
+      x: -144
+      y: 232
+      width: 642
+      height: 263
+  - MissionId: 2.Seagull
+    Position:
+      serializedVersion: 2
+      x: -643
+      y: 266
+      width: 331
+      height: 134
+  - MissionId: 4.SeagullsFaction
+    Position:
+      serializedVersion: 2
+      x: -224
+      y: 631
+      width: 380
+      height: 110
+  - MissionId: 7.Ducks
+    Position:
+      serializedVersion: 2
+      x: 617
+      y: 660
+      width: 413
+      height: 110
+  - MissionId: 8.EaglesFaction
+    Position:
+      serializedVersion: 2
+      x: 1238
+      y: 297
+      width: 369
+      height: 134
+  - MissionId: 5.RecruitOwl
+    Position:
+      serializedVersion: 2
+      x: 789
+      y: 254
+      width: 352
+      height: 110
+  - MissionId: 6.RecruitRaven
+    Position:
+      serializedVersion: 2
+      x: 789
+      y: 376
+      width: 365
+      height: 110
+  - MissionId: 11.Phoenix
+    Position:
+      serializedVersion: 2
+      x: 2677
+      y: 265
+      width: 339
+      height: 110
+  - MissionId: 10.Simurg
+    Position:
+      serializedVersion: 2
+      x: 2237
+      y: 265
+      width: 342
+      height: 110
+  - MissionId: 9.2.RavenAttack
+    Position:
+      serializedVersion: 2
+      x: 1703
+      y: 35
+      width: 373
+      height: 134
+  - MissionId: 9.OwlAttack
+    Position:
+      serializedVersion: 2
+      x: 1771
+      y: 569
+      width: 349
+      height: 134
+  - MissionId: 1.Start
+    Position:
+      serializedVersion: 2
+      x: -1039
+      y: 266
+      width: 316
+      height: 110
