@@ -10,8 +10,8 @@ namespace Birdgame.Missions.Data
     {
         public string MissionId;
         public MissionType MissionType;
-        public List<string> SimpleUnlockConditions;
-        public List<EitherOrCondition> EitherOrUnlockConditions;
+        public List<string> SimpleUnlockConditions = new ();
+        public List<EitherOrCondition> EitherOrUnlockConditions =new ();
         public List<HeroType> HeroUnlocks;
         public List<string> TemporarilyHides;
         public List<MissionHeroReward> HeroPowerRewards;

@@ -28,6 +28,7 @@ namespace Birdgame.Missions.Data
         public void SaveDataFromEditor(List<MissionStaticData> missionsData)
         {
             _missionsData = missionsData;
+            _missionsDataById = null;
         }
 #endif
     }

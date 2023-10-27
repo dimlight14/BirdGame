@@ -40,6 +40,7 @@ namespace Birdgame.Editor
             _database.SaveDataFromEditor(_preparedDataToSave);
             EditorUtility.SetDirty(_nodePositionsData);
             EditorUtility.SetDirty(_database);
+            AssetDatabase.SaveAssets();
         }
 
         private void ParseSingleNode(MissionNode node)
