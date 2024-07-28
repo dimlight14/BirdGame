@@ -8,7 +8,7 @@ namespace Birdgame.Editor
 {
     public abstract class MissionNodeBase : Node, IEdgeConnectorListener
     {
-        protected Action<Node, Port> removePort;
+        protected Action<Node, Port> removePortAction;
 
         protected void AddButton(Action onClick, string buttonName)
         {
@@ -20,7 +20,7 @@ namespace Birdgame.Editor
         protected Port GeneratePort(Direction portDirection, Port.Capacity capacity = Port.Capacity.Single)
         {
             var newPort = InstantiatePort(Orientation.Horizontal, portDirection, capacity, typeof(string));
-            var deleteBtn = new Button(() => removePort(this, newPort))
+            var deleteBtn = new Button(() => removePortAction(this, newPort))
             {
                 text = "X"
             };

@@ -182,8 +182,8 @@ MonoBehaviour:
   - MissionId: 9.2.RavenAttack
     MissionType: 0
     SimpleUnlockConditions:
-    - 8.EaglesFaction
     - 3.OwlsVsRavens.owls
+    - 8.EaglesFaction
     EitherOrUnlockConditions: []
     HeroUnlocks: 04000000
     TemporarilyHides:
@@ -200,8 +200,8 @@ MonoBehaviour:
   - MissionId: 9.OwlAttack
     MissionType: 0
     SimpleUnlockConditions:
-    - 3.2.OwlsVsRavens.ravens
     - 8.EaglesFaction
+    - 3.2.OwlsVsRavens.ravens
     EitherOrUnlockConditions: []
     HeroUnlocks: 03000000
     TemporarilyHides:

@@ -13,9 +13,9 @@ namespace Birdgame.Editor
         private readonly TextField _idTextField;
         public SingleMissionNodeData NodeData => _nodeData;
 
-        public MissionNode(Action<Node, Port> removePort)
+        public MissionNode(Action<Node, Port> removePortAction)
         {
-            base.removePort = removePort;
+            base.removePortAction = removePortAction;
             _nodeData = ScriptableObject.CreateInstance<SingleMissionNodeData>();
 
             AddButton(() => AddPort(Direction.Input, Port.Capacity.Multi), "+ either/or input");

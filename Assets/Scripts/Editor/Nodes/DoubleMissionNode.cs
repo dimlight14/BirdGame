@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -15,9 +16,9 @@ namespace Birdgame.Editor
         private readonly DoubleMissionNodeData _nodeData;
         public DoubleMissionNodeData NodeData => _nodeData;
 
-        public DoubleMissionNode(Action<Node, Port> removePort)
+        public DoubleMissionNode(Action<Node, Port> removePortAction)
         {
-            base.removePort = removePort;
+            base.removePortAction = removePortAction;
             _nodeData = ScriptableObject.CreateInstance<DoubleMissionNodeData>();
 
             AddButton(() => AddPort(Direction.Input, Port.Capacity.Multi), "+ either/or input");
@@ -96,6 +97,47 @@ namespace Birdgame.Editor
                 _nodeData.MissionBId = newId;
             }
             title = GetInputId();
+            PropagateIdChangeToConnections();
+        }
+
+        private void PropagateIdChangeToConnections()
+        {
+            foreach (var visualElement in outputContainer.Children())
+            {
+                if (visualElement is not Port port)
+                {
+                    continue;
+                }
+
+                if (!port.connected)
+                {
+                    continue;
+                }
+
+                var connectedInputPort = port.connections.First().input;
+                var connectedInputNode = connectedInputPort.node as MissionNodeBase;
+                connectedInputNode?.UpdateInputPort(connectedInputPort);
+            }
+
+            foreach (var visualElement in inputContainer.Children())
+            {
+                if (visualElement is not Port port)
+                {
+                    continue;
+                }
+
+                if (!port.connected)
+                {
+                    continue;
+                }
+
+                foreach (var connection in port.connections)
+                {
+                    var connectedOutputPort = connection.output;
+                    var connectedOutputNode = connectedOutputPort.node as MissionNodeBase;
+                    connectedOutputNode?.UpdateOutputPort(connectedOutputPort);
+                }
+            }
         }
 
         public override void OnUnselected()
@@ -118,13 +160,18 @@ namespace Birdgame.Editor
 
         public override string GetOutputId(Port port)
         {
-            var bLabelIndex = outputContainer.IndexOf(_missionBUnlocksLabel);
-            var returnString = outputContainer.IndexOf(port) > bLabelIndex ? _nodeData.MissionBId : _nodeData.MissionAId;
+            var returnString = PortIsMissionAPort(port)  ? _nodeData.MissionAId : _nodeData.MissionBId;
             if (returnString == "")
             {
                 returnString = "Mission without Id";
             }
             return returnString;
+        }
+
+        private bool PortIsMissionAPort(Port port)
+        {
+            var bLabelIndex = outputContainer.IndexOf(_missionBUnlocksLabel);
+            return outputContainer.IndexOf(port) <= bLabelIndex;
         }
     }
 }

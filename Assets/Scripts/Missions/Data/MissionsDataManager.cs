@@ -98,10 +98,10 @@ namespace Birdgame.Missions.Data
                 }
             }
 
-            TemporarilyhideMissions();
+            TemporarilyHideMissions();
         }
 
-        private void TemporarilyhideMissions()
+        private void TemporarilyHideMissions()
         {
             foreach (var missionToBlock in _missionsToTemporarilyHide)
             {
